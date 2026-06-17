@@ -1,0 +1,59 @@
+<div style="padding: 20px; max-width: 600px; font-family: Arial, sans-serif;">
+  <h2>Cadastro de Desenvolvedor</h2>
+
+  <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div style="margin-bottom: 15px;">
+      <label style="display: block; font-weight: bold;">Nome:</label>
+      <input type="text" formControlName="name" placeholder="Digite seu nome" style="width: 100%; padding: 8px; margin-top: 5px;">
+      <div *ngIf="userForm.get('name')?.touched && userForm.get('name')?.invalid" style="color: red; font-size: 12px;">
+        O nome é obrigatório (mínimo 3 caracteres).
+      </div>
+    </div>
+
+    <hr>
+
+    <h3>Habilidades</h3>
+    
+    <button type="button" (click)="addSkill()" style="background-color: #28a745; color: white; padding: 8px 12px; border: none; cursor: pointer; margin-bottom: 15px;">
+      + Adicionar Habilidade
+    </button>
+
+    <div formArrayName="skills">
+      <div *ngFor="let skill of skills.controls; let i = index" [formGroupName]="i" style="border: 1px solid #ccc; padding: 15px; margin-bottom: 10px; position: relative; background-color: #f9f9f9;">
+        
+        <h4>Habilidade #{{ i + 1 }}</h4>
+
+        <div style="display: flex; gap: 10px; margin-bottom: 10px;">
+          <div style="flex: 2;">
+            <label>Tecnologia:</label>
+            <input type="text" formControlName="skillName" placeholder="Ex: Angular, Node.js" style="width: 100%; padding: 6px;">
+            <div *ngIf="skill.get('skillName')?.touched && skill.get('skillName')?.invalid" style="color: red; font-size: 12px;">
+              Campo obrigatório.
+            </div>
+          </div>
+
+          <div style="flex: 1;">
+            <label>Anos de Exp:</label>
+            <input type="number" formControlName="experienceYears" placeholder="Ex: 2" style="width: 100%; padding: 6px;">
+            <div *ngIf="skill.get('experienceYears')?.touched && skill.get('experienceYears')?.invalid" style="color: red; font-size: 12px;">
+              Invalido.
+            </div>
+          </div>
+        </div>
+
+        <button type="button" (click)="removeSkill(i)" style="background-color: #dc3545; color: white; padding: 5px 10px; border: none; cursor: pointer;">
+          Remover
+        </button>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="userForm.invalid" style="background-color: #007bff; color: white; padding: 10px 20px; border: none; cursor: pointer; width: 100%; margin-top: 15px;">
+      Salvar Cadastro
+    </button>
+  </form>
+
+  <div style="margin-top: 30px; background-color: #eee; padding: 15px;">
+    <h4>Value do Formulário (JSON):</h4>
+    <pre>{{ userForm.value | json }}</pre>
+  </div>
+</div>
