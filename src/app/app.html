@@ -1,15 +1,73 @@
-<header>
-    <h1>Welcome to My Angular App</h1>
+<header class="header">
 
-    <nav>
-        <a routerLink="/">Home</a>
-        <a routerLink="/about">About</a>
-        <a routerLink="/contact">Contact</a>
-    </nav>
+        <div class="container">
+
+            <div class="logo">
+                <img src="assets/images/logo.horizontal.png" alt="Logo da Clínica Meraki">
+            </div>
+
+            <nav class="nav">
+
+                <ul class="menu">
+
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#especialidades">Especialidades</a></li>
+                    <li><a href="#estrutura">Estrutura</a></li>
+                    <li><a routerLink="/blog" routerLinkActive="active">Blog</a></li>
+
+                </ul>
+
+            </nav>
+
+            <a href="https://wa.me/5551993030335?text=Olá!%20Estou%20entrando%20em%20contato%20pelo%20site%20da%20Clínica%20Meraki%20e%20gostaria%20de%20informações."
+                class="btn-header" target="_blank" rel="noopener noreferrer">
+                Agendar
+            </a>
+
+        </div>
+
 </header>
 
 <router-outlet></router-outlet>
 
 <footer>
-    <p>&copy; 2024 My Angular App. All rights reserved.</p>
+
+        <div class="container footer-content">
+
+            <div>
+
+                <h3>MERAKI</h3>
+
+                <p>
+                    Clínica Multidisciplinar Meraki
+                </p>
+
+            </div>
+
+            <div>
+
+                <h4>Links</h4>
+
+                <ul>
+                    <li><a href="#sobre" style="color: white; text-decoration: underline;">Sobre</a></li>
+                    <li><a href="#equipe" style="color: white; text-decoration: underline;">Equipe</a></li>
+                    <li><a href="#contato" style="color: white; text-decoration: underline;">Contato</a></li>
+                    <li><a routerLink="/blog" routerLinkActive="active" style="color: white; text-decoration: underline;">Blog</a></li>
+                </ul>
+
+            </div>
+
+            <div>
+
+                <h4>Redes Sociais</h4>
+
+                <ul>
+                    <li><a href="https://www.instagram.com/merakiclinicas/" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">Instagram</a></li>
+                    <li><a href="https://www.facebook.com/meraki.clinica" target="_blank" rel="noopener noreferrer" style="color: white; text-decoration: underline;">Facebook</a></li>
+                </ul>
+
+            </div>
+
+        </div>
+
 </footer>
