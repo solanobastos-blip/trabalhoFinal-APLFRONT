@@ -1,0 +1,16 @@
+<article class="card">
+  <div class="card-header">
+    <span class="badge">{{ post.categoria }}</span>
+    <span class="date">{{ post.data }}</span>
+  </div>
+
+  <h3 class="title">{{ post.titulo }}</h3>
+  
+  <p class="content">{{ post.conteudo }}</p>
+
+  <div class="card-footer" *ngIf="isAdmin">
+    <button class="btn-delete" (click)="clicouExcluir()">
+      🗑️ Excluir Postagem
+    </button>
+  </div>
+</article>

@@ -1,0 +1,50 @@
+<main class="container blog-page">
+
+    <section class="blog-header">
+        <div class="header-titles">
+            <h2>Blog Meraki</h2>
+            <p>Acompanhe novidades, comunicados oficiais e dicas de saúde da nossa equipe clínica.</p>
+            <button
+                style="background: #2c7a7b; color: white; padding: 10px 20px; border-radius: 8px; font-weight: bold; border: none; cursor: pointer; margin-top: 10px;"
+                (click)="mostrarCaixaLogin = !mostrarCaixaLogin">
+                🔒 Área do Administrador (Abrir Login)
+            </button>
+        </div>
+
+        <div class="admin-controls">
+            <button *ngIf="!blogService.isAdmin()" class="btn-login-toggle"
+                (click)="mostrarCaixaLogin = !mostrarCaixaLogin">
+                🔒 Área do Administrador
+            </button>
+
+            <button *ngIf="blogService.isAdmin()" class="btn-logout" (click)="fazerLogout()">
+                🔓 Sair do Modo Admin
+            </button>
+        </div>
+    </section>
+
+    <div class="login-box" *ngIf="mostrarCaixaLogin && !blogService.isAdmin()">
+        <h4>Acesso Restrito - Equipe Médica</h4>
+        <div class="login-inputs">
+            <input #user type="text" placeholder="Usuário (dica: admin)">
+            <input #pass type="password" placeholder="Senha (dica: meraki123)">
+            <button (click)="tentarLogin(user.value, pass.value)">Entrar</button>
+        </div>
+    </div>
+
+    <app-post-form *ngIf="blogService.isAdmin()" (aoSalvar)="blogService.adicionarPost($event)">
+    </app-post-form>
+
+    <hr class="divisor">
+
+    <section class="posts-grid">
+        <app-post-card *ngFor="let postagem of blogService.posts()" [post]="postagem" [isAdmin]="blogService.isAdmin()"
+            (aoExcluir)="blogService.excluirPost($event)">
+        </app-post-card>
+    </section>
+
+    <div class="empty-state" *ngIf="blogService.posts().length === 0">
+        <p>Nenhuma notícia publicada no momento.</p>
+    </div>
+
+</main>

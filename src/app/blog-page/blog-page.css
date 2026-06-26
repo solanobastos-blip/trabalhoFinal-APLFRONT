@@ -1,0 +1,108 @@
+.blog-page {
+  padding-top: 40px;
+  padding-bottom: 80px;
+}
+
+.blog-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.header-titles h2 {
+  font-size: 2rem;
+  color: #1a202c;
+  margin-bottom: 8px;
+}
+
+.header-titles p {
+  color: #718096;
+  max-width: 600px;
+}
+
+.btn-login-toggle, .btn-logout {
+  background: #edf2f7;
+  border: 1px solid #cbd5e1;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #4a5568;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-login-toggle:hover {
+  background: #e2e8f0;
+  color: #1a202c;
+}
+
+.btn-logout {
+  background: #fed7d7;
+  color: #c53030;
+  border-color: #feb2b2;
+}
+
+/* Caixa de Login */
+.login-box {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-left: 4px solid #2c7a7b;
+  padding: 16px 20px;
+  border-radius: 8px;
+  margin-bottom: 32px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.login-box h4 {
+  font-size: 0.9rem;
+  color: #2c7a7b;
+  margin-bottom: 12px;
+}
+
+.login-inputs {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.login-inputs input {
+  padding: 8px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 0.85rem;
+}
+
+.login-inputs button {
+  background: #2c7a7b;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.divisor {
+  border: 0;
+  height: 1px;
+  background: #e2e8f0;
+  margin: 32px 0;
+}
+
+/* Grid de Cards */
+.posts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px;
+  color: #a0aec0;
+  font-style: italic;
+}

@@ -1,0 +1,36 @@
+<div class="form-container">
+  <h3>✨ Publicar Nova Notícia</h3>
+  
+  <form [formGroup]="formPost" (ngSubmit)="enviarPost()">
+    
+    <div class="field">
+      <label for="titulo">Título do Comunicado:</label>
+      <input type="text" id="titulo" formControlName="titulo" placeholder="Ex: Aviso sobre horários do feriado">
+      <span class="error" *ngIf="formPost.get('titulo')?.invalid && formPost.get('titulo')?.touched">
+        O título é obrigatório (mínimo 5 caracteres).
+      </span>
+    </div>
+
+    <div class="field">
+      <label for="categoria">Categoria:</label>
+      <select id="categoria" formControlName="categoria">
+        <option value="Prevenção">Prevenção</option>
+        <option value="Psicologia">Psicologia</option>
+        <option value="Nutrição">Nutrição</option>
+        <option value="Comunicado Oficial">Comunicado Oficial</option>
+      </select>
+    </div>
+
+    <div class="field">
+      <label for="conteudo">Conteúdo da postagem:</label>
+      <textarea id="conteudo" formControlName="conteudo" rows="4" placeholder="Digite o texto aqui..."></textarea>
+      <span class="error" *ngIf="formPost.get('conteudo')?.invalid && formPost.get('conteudo')?.touched">
+        Digite um texto mais completo para a notícia.
+      </span>
+    </div>
+
+    <button type="submit" class="btn-submit" [disabled]="formPost.invalid">
+      Publicar no Blog
+    </button>
+  </form>
+</div>
